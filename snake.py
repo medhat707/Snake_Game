@@ -38,6 +38,15 @@ class Snake:
             self.segments[tinny_tim].goto(new_x, new_y)  # to let last tinny_tim 2 move to pos of tinny_tim 1
         self.segments[0].forward(20)
 
+    #snake will continue even after hitting wall
+    def reset(self):
+        #looping through snake segments and sending them to another place far away
+        for seg in self.segments:
+            seg.goto(1000,1100)
+        self.segments.clear()
+        self.create_snake()
+        self.segments[0]
+
     def up(self):
         if self.segments[0].heading() != 270:
             self.segments[0].setheading(90)

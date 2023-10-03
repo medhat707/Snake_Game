@@ -48,8 +48,9 @@ while(game_is_on):
 
     #detecting collision with wall -> GAME OVER
     if snake.segments[0].xcor()>280 or snake.segments[0].xcor()<-280 or snake.segments[0].ycor()>280 or snake.segments[0].ycor() <-280:
-        game_is_on=False
-        scoreboard.game_over()
+        # game_is_on=False
+        scoreboard.reset()
+        snake.reset()
 
     # detecting collision with the tail
     for segments in snake.segments[1:]:
@@ -60,7 +61,7 @@ while(game_is_on):
         # snake.segments = [(posx,posy),(posx,posy),(posx,posy)]
         if snake.segments[0].distance(segments) < 10:
             game_is_on=False
-            scoreboard.game_over()
+            scoreboard.reset()
     # for tinny_tim in range(start=2, stop=0 , step=-1): #tinny_tim[2] means tim(-40,0) is the last tim
     # the above for loop does not work with python .. only with C
     # for tinny_tim in range(len(tims_list)-1, 0, -1):
